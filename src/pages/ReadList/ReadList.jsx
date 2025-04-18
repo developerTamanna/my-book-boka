@@ -39,7 +39,7 @@ const ReadList = () => {
    const handleSort = (type)=>{
         setSort(type)
         if(type==='pages'){
-    const sortedByPage =[...readList].sort((a,b)=>a.totalPages-b.totalPages)
+    const sortedByPage =[...readList].sort((a,b)=>a.yearOfPublishing-b.yearOfPublishing)
     setReadLIst(sortedByPage)
     console.log(sortedByPage)
         }
