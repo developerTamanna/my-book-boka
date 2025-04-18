@@ -8,7 +8,13 @@ const ReadList = () => {
 
 
     const [readList, setReadLIst]= useState([]);
+      
 
+    //sort
+
+    const [sort, setSort] = useState('')
+
+    //next
 
     const data = useLoaderData()
     console.log(data)
@@ -27,8 +33,33 @@ const ReadList = () => {
     },[])
 
 
+
+    //sort function
+
+   const handleSort = (type)=>{
+        setSort(type)
+        if(type==='pages'){
+    const sortedByPage =[...readList].sort((a,b)=>a.totalPages-b.totalPages)
+    setReadLIst(sortedByPage)
+    console.log(sortedByPage)
+        }
+        if(type==='ratings'){
+           const sortedByRatings =[... readList].sort((a,b)=>a.rating-b.rating)
+           setReadLIst(sortedByRatings)
+        }
+    }
+
+    //next
+
     return (
         <div>
+            <div className="dropdown">
+  <div tabIndex={0} role="button" className="btn m-1">sort by: {sort? sort: ''}</div>
+  <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+    <li ><a onClick={()=>handleSort('pages')}>pages</a></li>
+    <li><a onClick={()=>handleSort('ratings')}>ratings</a></li>
+  </ul>
+</div>
             <Tabs>
     <TabList>
       <Tab>Read Book List</Tab>
