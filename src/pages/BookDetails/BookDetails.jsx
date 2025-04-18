@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { addToStoreDB } from '../../Utilities/addTODb';
 
 const BookDetails = () => {
     const { id } = useParams();
@@ -10,6 +11,18 @@ const BookDetails = () => {
 
     const { image, bookName, author, category, rating, tags,
         yearOfPublishing, publisher, totalPages, review } = singleBook;
+
+
+        //button
+
+const handleMarkAsRead =(id)=>{
+    //store with id
+    //where to store
+    //array of collection
+    //if book already exist show a alert
+    //if book not exist then in the collection or array
+    addToStoreDB(id)
+}
 
     return (
 <div className="w-4/5 mx-auto my-10 border-2 border-blue-300 p-6 rounded-xl flex gap-8">
@@ -48,7 +61,7 @@ const BookDetails = () => {
 
     {/* Buttons */}
     <div className="flex gap-4 mt-4">
-        <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Read</button>
+        <button onClick={()=>handleMarkAsRead(id)} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Read</button>
         <button className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400">Wishlist</button>
     </div>
 </div>

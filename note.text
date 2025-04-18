@@ -1,0 +1,8 @@
+
+const handleMarkAsRead =(id)=>{
+    //store with id
+    //where to store
+    //array of collection
+    //if book already exist show a alert
+    //if book not exist then in the collection or array
+}
