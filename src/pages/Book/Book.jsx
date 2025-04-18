@@ -1,13 +1,15 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const Book = ({ singleBook }) => {
     const { image, bookName, author, category, rating, tags,
-        yearOfPublishing,publisher
+        yearOfPublishing,publisher,bookId
     } = singleBook;
 
     return (
-<div className="p-4">
+     <Link to={`BookDetails/${bookId}`}>
+     <div className="p-4">
 <div className="border rounded-lg shadow-sm flex flex-col h-full p-2">
 
 <figure className="h-60 flex items-center justify-center bg-gray-50 rounded-t-lg overflow-hidden">
@@ -60,6 +62,7 @@ yearOfPublishing}</button>
 </div>
 </div>
 </div>
+     </Link>
     );
 };
 
